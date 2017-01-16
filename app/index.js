@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Main } from './components/main';
+import { SearchFormInput } from './components/searchforminput';
 
-ReactDOM.render(<Main />, document.getElementById('app'));
+ReactDOM.render(<SearchFormInput />, document.getElementById('app'));
