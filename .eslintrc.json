@@ -27,6 +27,7 @@
     "react/no-multi-comp": "warn",
     "react/prop-types": "warn",
     "react/sort-comp": "warn",
-    "react/sort-prop-types": "warn"
+    "react/sort-prop-types": "warn",
+    "import/no-unresolved": 0
   }
 }

@@ -12,18 +12,19 @@ export class DropDownOptions extends React.Component {
   }
 
   render() {
-    const datalistOptions = this.state.filteredOptions;
+    const typeAheadOptions = this.state.filteredOptions;
     return this.props.searchParams.length > 0 ?
-    (
-      <datalist id="cartoonCharacters">
-        {
-          datalistOptions
-          .filter((option) => option.toLowerCase().includes(this.props.searchParams.toLowerCase()))
-          .map((searchValue, index) => <option key={index} value={searchValue} />)
-        }
-      </datalist>
-    ) :
-    null;
+      (
+        <ul>
+          {
+            typeAheadOptions
+              .filter((option) => option.toLowerCase().includes(this.props.searchParams))
+              .map((searchValue, index) => <li key={index}>
+              <button key={index}>{searchValue}</button>
+              </li>)
+          }
+        </ul>
+      ) : null;
   }
 }
 
