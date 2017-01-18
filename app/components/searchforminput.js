@@ -13,18 +13,24 @@ export class SearchFormInput extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ searchParams: event.target.value.replace(/ /g, '').toLowerCase() });
+    event.preventDefault();
+    this.setState({
+      searchParams: event.target.value.replace(/ {2}/g, ' ').toLowerCase()
+    });
   }
-
 
   render() {
     return (
       <div>
         <input name="searchInput"
           onChange={this.handleChange}
-          autoFocus="true"
+          value={this.state.searchParams}
+          autoFocus
         />
-        <DropDownOptions searchParams={this.state.searchParams} />
+        <DropDownOptions
+          searchParams={this.state.searchParams}
+          updateInput={(value) => this.setState({ searchParams: value.toLowerCase() })}
+        />
       </div>
     );
   }

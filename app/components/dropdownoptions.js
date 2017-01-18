@@ -9,25 +9,36 @@ export class DropDownOptions extends React.Component {
     this.state = {
       filteredOptions: cartoonCharacters
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.props.updateInput(e.target.innerHTML);
   }
 
   render() {
     const typeAheadOptions = this.state.filteredOptions;
-    return this.props.searchParams.length > 0 ?
-      (
-        <ul>
-          {
-            typeAheadOptions
-              .filter((option) => option.toLowerCase().includes(this.props.searchParams))
-              .map((searchValue, index) => <li key={index}>
-              <button key={index}>{searchValue}</button>
-              </li>)
-          }
-        </ul>
-      ) : null;
+    return this.props.searchParams.length > 0 ? (
+      <ul>
+        {
+          typeAheadOptions
+            .filter((option) => option.toLowerCase().includes(this.props.searchParams))
+            .map((searchValue, index) => {
+              return (
+                <li key={index}>
+                  <button key={index}
+                    onClick={this.handleClick}
+                  >{searchValue}</button>
+                </li>);
+            })
+        }
+      </ul>
+    ) : null;
   }
 }
 
 DropDownOptions.propTypes = {
-  searchParams: React.PropTypes.string
+  searchParams: React.PropTypes.string,
+  updateInput: React.PropTypes.func
 };
