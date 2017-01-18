@@ -9,16 +9,17 @@ export class DropDownOptions extends React.Component {
     this.state = {
       filteredOptions: cartoonCharacters
     };
+
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    e.preventDefault();
     this.props.updateInput(e.target.innerHTML);
   }
 
   render() {
     const typeAheadOptions = this.state.filteredOptions;
+
     return this.props.searchParams.length > 0 ? (
       <ul>
         {

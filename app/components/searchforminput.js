@@ -9,11 +9,11 @@ export class SearchFormInput extends React.Component {
     this.state = {
       searchParams: ''
     };
+
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    event.preventDefault();
     this.setState({
       searchParams: event.target.value.replace(/ {2}/g, ' ').toLowerCase()
     });
