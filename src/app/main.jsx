@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { DropDownOptions } from './dropdownoptions';
-import { SearchFormInput } from './searchforminput';
+import { DropDownOptions } from './components/dropdownoptions';
+import { SearchFormInput } from './components/searchforminput';
 import { cartoonCharacters } from '../data/data';
 
 

@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = (env) => ({
-  context: path.resolve(__dirname, 'app'),
+  context: path.resolve(__dirname, 'src'),
   devtool: env === 'prod' ? 'source-map' : 'cheap-module-eval-source-map',
   entry: {
     main: './index.jsx',
