@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export class SearchFormInput extends React.Component {
+export class SearchFormInput extends React.PureComponent {
   constructor(props) {
     super(props);
   }
