@@ -8,12 +8,13 @@ export class DropDownOptions extends React.Component {
 
   render() {
     const typeAheadOptions = this.props.filteredOptions;
+    const searchParams = this.props.searchParams;
 
     return this.props.searchParams.length > 0 ? (
       <ul>
         {
           typeAheadOptions
-            .filter((option) => option.toLowerCase().includes(this.props.searchParams))
+            .filter((option) => option.toLowerCase().includes(searchParams))
             .map((searchValue, index) => {
               return (
                 <li key={index}>

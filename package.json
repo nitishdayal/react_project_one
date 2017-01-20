@@ -6,8 +6,8 @@
   "author": "Nitish Dayal",
   "license": "MIT",
   "scripts": {
-    "start:dev": "webpack-dashboard -- webpack-dev-server --env=dev --open",
-    "start:prod": "webpack-dashboard -- webpack-dev-server --env=prod --open",
+    "start:dev": "webpack-dashboard -- webpack-dev-server --env=dev -w --open",
+    "start:prod": "webpack-dashboard -- webpack-dev-server --env=prod -w --open",
     "build:dev": "rm -rf dist && webpack-dashboard -- webpack --env=dev",
     "build:prod": "rm -rf dist && webpack-dashboard -- webpack --env=prod"
   },

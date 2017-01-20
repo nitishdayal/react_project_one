@@ -20,7 +20,7 @@ module.exports = (env) => ({
   plugins: [
     new DashboardPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor'
+      names: ['vendor', 'manifest']
     }),
     new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({
