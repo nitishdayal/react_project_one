@@ -1,12 +1,15 @@
 import React from 'react';
 
 import { DropDownOptions } from './dropdownoptions';
+import { SearchFormInput } from './searchforminput';
+import { cartoonCharacters } from '../data/data';
 
 
-export class SearchFormInput extends React.Component {
+export class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      filteredOptions: cartoonCharacters,
       searchParams: ''
     };
 
@@ -22,12 +25,12 @@ export class SearchFormInput extends React.Component {
   render() {
     return (
       <div>
-        <input name="searchInput"
-          onChange={this.handleChange}
+        <SearchFormInput
           value={this.state.searchParams}
-          autoFocus
+          onChange={this.handleChange}
         />
         <DropDownOptions
+          filteredOptions={this.state.filteredOptions}
           searchParams={this.state.searchParams}
           updateInput={(value) => this.setState({ searchParams: value.toLowerCase() })}
         />

@@ -7,7 +7,7 @@ module.exports = (env) => ({
   context: path.resolve(__dirname, 'app'),
   devtool: env === 'prod' ? 'source-map' : 'cheap-module-eval-source-map',
   entry: {
-    main: './index.js',
+    main: './index.jsx',
     vendor: [
       'react',
       'react-dom'

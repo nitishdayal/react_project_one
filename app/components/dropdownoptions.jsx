@@ -1,24 +1,13 @@
 import React from 'react';
 
-import { cartoonCharacters } from '../data/data';
-
 
 export class DropDownOptions extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      filteredOptions: cartoonCharacters
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
-    this.props.updateInput(e.target.innerHTML);
   }
 
   render() {
-    const typeAheadOptions = this.state.filteredOptions;
+    const typeAheadOptions = this.props.filteredOptions;
 
     return this.props.searchParams.length > 0 ? (
       <ul>
@@ -29,7 +18,7 @@ export class DropDownOptions extends React.Component {
               return (
                 <li key={index}>
                   <button key={index}
-                    onClick={this.handleClick}
+                    onClick={(e) => this.props.updateInput(e.target.innerHTML)}
                   >{searchValue}</button>
                 </li>);
             })
@@ -40,6 +29,7 @@ export class DropDownOptions extends React.Component {
 }
 
 DropDownOptions.propTypes = {
+  filteredOptions: React.PropTypes.array,
   searchParams: React.PropTypes.string,
   updateInput: React.PropTypes.func
 };
