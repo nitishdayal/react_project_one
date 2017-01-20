@@ -18,7 +18,7 @@ export class Main extends React.Component {
 
   handleChange(event) {
     this.setState({
-      searchParams: event.target.value.replace(/ {2}/g, ' ').toLowerCase()
+      searchParams: event.target.value.replace(/ {2}/g, ' ')
     });
   }
 
@@ -31,8 +31,8 @@ export class Main extends React.Component {
         />
         <DropDownOptions
           filteredOptions={this.state.filteredOptions}
-          searchParams={this.state.searchParams}
-          updateInput={(value) => this.setState({ searchParams: value.toLowerCase() })}
+          searchParams={this.state.searchParams.toLowerCase()}
+          updateInput={(value) => this.setState({ searchParams: value })}
         />
       </div>
     );
