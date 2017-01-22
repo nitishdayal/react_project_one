@@ -1,23 +1,18 @@
 import React from 'react';
 
 
-export class SearchFormInput extends React.PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
+export const SearchFormInput = (props) => {
+  return (
       <div>
-        <input name="searchInput"
-          onChange={this.props.onChange}
-          value={this.props.value}
+        <input
+          name="searchInput"
+          onChange={props.onChange}
+          value={props.value}
           autoFocus
         />
       </div>
-    );
-  }
-}
+  );
+};
 
 SearchFormInput.propTypes = {
   onChange: React.PropTypes.func,
