@@ -1,24 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { DropDownOptions } from './components/dropdownoptions';
 import { SearchFormInput } from './components/searchforminput';
 import { cartoonCharacters } from '../data/data';
 
 
-export class Main extends React.Component {
+export class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filteredOptions: cartoonCharacters,
-      searchParams: ''
+      filteredOptions: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
+  handleChange(value) {
     this.setState({
-      searchParams: event.target.value.replace(/ {2}/g, ' ')
+      filteredOptions: value.replace(/ {2}/g, ' ')
     });
   }
 
@@ -26,13 +25,12 @@ export class Main extends React.Component {
     return (
       <div>
         <SearchFormInput
-          value={this.state.searchParams}
           onChange={this.handleChange}
         />
         <DropDownOptions
-          filteredOptions={this.state.filteredOptions}
-          searchParams={this.state.searchParams.toLowerCase()}
-          updateInput={(value) => this.setState({ searchParams: value })}
+          filteredOptions={cartoonCharacters}
+          searchParams={this.state.filteredOptions.toLowerCase()}
+          updateInput={(value) => this.setState({ filteredOptions: value })}
         />
       </div>
     );

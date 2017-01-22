@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 
 export const SearchFormInput = (props) => {
+  const passVal = (e) => props.onChange(e.target.value);
+
   return (
       <div>
         <input
           name="searchInput"
-          onChange={props.onChange}
+          onChange={passVal}
+          onFocus={passVal}
           value={props.value}
           autoFocus
         />
@@ -15,6 +18,6 @@ export const SearchFormInput = (props) => {
 };
 
 SearchFormInput.propTypes = {
-  onChange: React.PropTypes.func,
-  value: React.PropTypes.string
+  onChange: PropTypes.func,
+  value: PropTypes.string
 };

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 
 export const DropDownOptions = (props) => {
+  if (props.searchParams.length < 1) { return null; }
+
   const filteredOptions = props.filteredOptions;
   const searchParams = props.searchParams;
 
@@ -18,15 +20,15 @@ export const DropDownOptions = (props) => {
           </li>);
       });
 
-  return props.searchParams.length > 0 ? (
+  return (
     <ul>
       {typeAheadOptions}
     </ul>
-  ) : null;
+  );
 };
 
 DropDownOptions.propTypes = {
-  filteredOptions: React.PropTypes.array,
-  searchParams: React.PropTypes.string,
-  updateInput: React.PropTypes.func
+  filteredOptions: PropTypes.array,
+  searchParams: PropTypes.string,
+  updateInput: PropTypes.func
 };
